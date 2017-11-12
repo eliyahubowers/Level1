@@ -56,11 +56,13 @@ public class DrumKit extends MouseAdapter {
 		// 14. When the mouse is clicked, print "mouse clicked"
 		System.out.println("mouseClicked");
 		JLabel drumClicked = (JLabel) e.getSource();
-		// 15. Download a drum sound and drop it into your "default package". You can
+		// 15. Download a drum sound and drop it into your "default package". You c
 		// find it on freesound.org. To download it, log in as
 		// leagueofamazing/code4life.
 		// 16. If they clicked on the drumImage...
-
+		if (e.getSource() == drumLabelWithImage) {
+			playSound("sound.wav");
+		}
 		// 17. ...use the playSound method to play a drum sound.
 
 		// 18. Add more images to make a drumkit. Remember to add a mouse listener to
