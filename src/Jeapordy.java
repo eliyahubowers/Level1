@@ -29,7 +29,8 @@ import javax.swing.JPanel;
 public class Jeapordy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
-	private JButton thirdButton, fourthButton;
+	private JButton thirdButton; 
+	private JButton fourthButton;
 
 	private JPanel quizPanel;
 	int score = 0;
@@ -61,16 +62,23 @@ public class Jeapordy implements ActionListener {
 		quizPanel.add(firstButton);
 		// 8. Write the code inside the createButton() method below. Check that your
 		// game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
-
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-		secondButton = createButton("10,000,000,000");
+		secondButton = createButton("10,000");
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
 		firstButton.addActionListener(this);
 		secondButton.addActionListener(this);
 		// 12. Fill in the actionPerformed() method below
+		
+		thirdButton = createButton("100,000");
+		quizPanel.add(thirdButton);
+		thirdButton.addActionListener(this);
+		
+		fourthButton = createButton("1000,000");
+		quizPanel.add(fourthButton);
+		fourthButton.addActionListener(this);		
 
 		frame.pack();
 		quizPanel.setLayout(new GridLayout(buttonCount + 1, 3));
@@ -97,7 +105,6 @@ public class Jeapordy implements ActionListener {
 		// Increment the buttonCount (this should make the layout vertical)
 		buttonCount++;
 		// Return your new button instead of the temporary button
-
 		return new JButton("$" + dollarAmount);
 	}
 
@@ -109,17 +116,27 @@ public class Jeapordy implements ActionListener {
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
 		if (arg0.getSource() == firstButton) {
-			askQuestion("what am I thinking right now?", "/`]'.;jdf", 1);
+			askQuestion("what is 1+1?", "2", 1);
+			firstButton.setText("");
 		}
 		// Fill in the askQuestion() method. When you play the game, the score should
 		// change.
-
 		// Or if the buttonPressed was the secondButton
-
+		else if (arg0.getSource() == secondButton) {
 		// Call the askQuestion() method with a harder question
-
+			askQuestion("what is the prime factorization of 91","7 13", 10000);
 		// Clear the button text (set the button text to nothing)
-
+			secondButton.setText("");
+			}
+		else if (arg0.getSource() == thirdButton) {
+			askQuestion("do I have glasses", "yes", 1000000);
+			thirdButton.setText("");
+		}
+		else if (arg0.getSource() == fourthButton) {
+			askQuestion("good luck", "kincfuhekcfuherkcui", 10000000);
+			fourthButton.setText("");
+		}
+		
 	}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
@@ -133,13 +150,13 @@ public class Jeapordy implements ActionListener {
 			// Pop up a message to tell the user they were correct
 		}
 		// Otherwise
-
+		else{
 		// Decrement the score by the prizeMoney
-
+			score-= prizeMoney;
 		// Pop up a message to tell the user the correct answer
-
+		}
 		// Call the updateScore() method
-
+		updateScore();
 	}
 
 	public void playJeopardyTheme() {
