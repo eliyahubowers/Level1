@@ -22,7 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class ChuckleClicker {
+public class ChuckleClicker implements ActionListener{
 	JButton joke;
 	JButton punchline;
 	public static void main(String[] args) {
@@ -34,24 +34,34 @@ public class ChuckleClicker {
 		JFrame chuckle = new JFrame();
 		JPanel clicker = new JPanel();
 		chuckle.setVisible(true);
-		chuckle.add(clicker);
 		chuckle.setTitle("ChuckleClicker");
 	    joke = new JButton();
 		joke.setText("joke");
 		joke.addActionListener(this);
 	    punchline = new JButton();
 		punchline.setText("punchline");
+		punchline.addActionListener(this);
 		clicker.add(joke);
 		clicker.add(punchline);
+		chuckle.add(clicker);
+		chuckle.pack();
 	}
 	
 	public void actionPreformed(ActionEvent arg0) {
-		JButton buttonPressed = (JButton) arg0.getSource();
-		//if(arg0.getSource() == joke) {
-			
-		//}
 		
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton buttonPressed = (JButton) e.getSource();
+		if(e.getSource() == joke) {
+			JOptionPane.showMessageDialog(null, "Theres only 1 reason I dont break you in half ");
+		}else if (e.getSource() == punchline) {
+			JOptionPane.showMessageDialog(null, "I dont want 2 of you around");
+		}
+		
+	}
+
 }
 
 
