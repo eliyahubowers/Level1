@@ -47,9 +47,6 @@ public class ChuckleClicker implements ActionListener{
 		chuckle.pack();
 	}
 	
-	public void actionPreformed(ActionEvent arg0) {
-		
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
