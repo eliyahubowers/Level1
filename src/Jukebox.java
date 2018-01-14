@@ -15,9 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import javazoom.jl.decoder.JavaLayerException;
-import javazoom.jl.player.advanced.AdvancedPlayer;
-
 public class Jukebox implements Runnable , MouseListener{
 	JLabel j1;
 	JLabel j2;
