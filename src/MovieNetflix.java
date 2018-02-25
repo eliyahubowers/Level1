@@ -24,5 +24,13 @@ public class MovieNetflix {
 		n.sortMoviesByRating();
 		
 		n.getBestMovie();
+		
+		n.sortMoviesByRating();
+		
+		n.printMovies();
+		
+		System.out.println("The Best Movie is : " + n.getBestMovie());
+		
+		System.out.println("The 2nd Best Movie is : " + n.getBestMovie1());
 	}
 }
