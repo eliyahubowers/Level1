@@ -19,7 +19,7 @@ public class WhackAMole implements ActionListener {
 	static Date TAS;
 
 	public static void main(String[] args) {
-		r = new Random().nextInt(25);
+		r = new Random().nextInt(23);
 		new WhackAMole().Moles(r);
 
 	}
@@ -28,7 +28,7 @@ public class WhackAMole implements ActionListener {
 		FF = new JFrame();
 		PP = new JPanel();
 		FF.add(PP);
-		for (int i = 0; i <= 25; i++) {
+		for (int i = 0; i <= 23; i++) {
 			if (random == i) {
 				BM = new JButton();
 				BM.setText("MOLE");
@@ -57,19 +57,19 @@ public class WhackAMole implements ActionListener {
 				molesW = 0;
 			}
 			FF.dispose();
-			r = new Random().nextInt(25);
+			r = new Random().nextInt(23);
 			new WhackAMole().Moles(r);
 		} else {
+			molesW = 0;
 			HowDorky++;
 			callDork(HowDorky);
 		}
-		System.out.println(molesW);
 	}
 
 	void callDork(int dorkyness) {
 		switch (dorkyness) {
 		case 1:
-			speak("dork ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha");
+			speak("dork");
 			break;
 		case 2:
 			speak("idiot");
@@ -90,6 +90,7 @@ public class WhackAMole implements ActionListener {
 			speak("one more and you are out");
 			break;
 		case 8:
+			speak("ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha ha");
 			System.exit(0);
 			break;
 		}
