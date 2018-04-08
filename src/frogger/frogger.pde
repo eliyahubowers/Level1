@@ -10,7 +10,7 @@ Car ccc = new Car(300,240,120,3);
 Car aaa = new Car(300,280,160,1);
 Car rrr = new Car(300,320,40,6);
 
-
+boolean returnts;
 void setup(){
   size(400,400);
 }
@@ -21,30 +21,57 @@ void draw(){
   ellipse(x,y,40,40);
     c.display();
   c.moveleft();
+   returnts = c.intersects(c);
+  
+     if(returnts == true){            x = 180;       y = 380;        returnts = false;   }
   
     a.display();
   a.moveright();
+    returnts = a.intersects(a);
+  
+     if(returnts == true){            x = 180;       y = 380;        returnts = false;   }
   
     r.display();
   r.moveleft();
+    returnts = r.intersects(r);
+  
+     if(returnts == true){            x = 180;       y = 380;        returnts = false;   }
   
     cc.display();
   cc.moveleft();
+    returnts = cc.intersects(cc);
+  
+     if(returnts == true){            x = 180;       y = 380;        returnts = false;   }
   
     aa.display();
   aa.moveleft();
+    returnts = aa.intersects(aa);
+  
+     if(returnts == true){            x = 180;       y = 380;        returnts = false;   }
   
     rr.display();
   rr.moveright();
+    returnts = rr.intersects(rr);
+  
+     if(returnts == true){            x = 180;       y = 380;        returnts = false;   }
   
     ccc.display();
   ccc.moveright();
+    returnts = ccc.intersects(ccc);
+    
+       if(returnts == true){            x = 180;       y = 380;        returnts = false;   }
   
     aaa.display();
   aaa.moveleft();
+    returnts = aaa.intersects(aaa);
+  
+     if(returnts == true){            x = 180;       y = 380;        returnts = false;   }
   
     rrr.display();
   rrr.moveleft();
+    returnts = rrr.intersects(rrr);
+  
+   if(returnts == true){            x = 180;       y = 380;        returnts = false;   }
   
   if(y<0){
      textSize(100);
@@ -110,8 +137,8 @@ class Car{
      if(carX<0){
        carX = 400;
      }
-     
    }
+     
    
    void moveright(){
      carX+=(carSpeed);
@@ -120,13 +147,23 @@ class Car{
      }
    }
    
+   public int getX(){
+     return this.carX;
+   }
    
-   boolean intersects(Car car) {
-    if ((y > car.carY && y < car.carY+40) && (x > car.getX() && x < car.getX()+car.getSize())){
+   public int getY(){
+     return this.carY;
+   }
+   
+   public int getSize(){
+     return this.carSize;
+   }
+   
+ boolean intersects(Car car) {
+if ((y > car.getY() && y < car.getY()+50) && (x > car.getX() && x < car.getX()+car.getSize()))
           return true;
-      }else {
+    else 
         return false;
-      }
-  }
-
+ }
+  
 }
