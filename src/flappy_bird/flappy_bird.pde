@@ -30,18 +30,23 @@ void draw(){
   
   jump();
   
-  birdY = constrain(birdY, 20 , 380);
+  birdY = constrain(birdY, 20 , 400);
+  
+  if(birdY > 390){
+    gameOver = true;
+  }
   
   if(gameOver == true){
     fill(255);
     noStroke();
     rect(0,0,300,400);
-    textSize(100);
+    textSize(60);
     fill(0);
     textAlign(CENTER, CENTER);
-    text("Game Over",0,0,300,400);
-    text("Score:" + score,0,500,300,300);
+    text("Game Over",0,-100,300,400);
+    text("Score: " + score,0,200,300,300);
     stroke(1);
+    
 birdX = 90;
 birdY = 150;
 jump = false;
@@ -67,7 +72,7 @@ void pipes(){
       pipesX--;
       if(pipesX <= 0){
         pipesX = 300;
-        int random = (int) random(100, 300);
+        int random = (int) random(100, 270);
         pipesY = random;
         score++;
       }
